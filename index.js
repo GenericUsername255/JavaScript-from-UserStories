@@ -23,6 +23,18 @@ Vue.createApp({
                 this.records = []
                 this.error = ex.message
             }
-        }
+        },  
+        sortByTitle() {
+            this.helperGetPosts(baseUri + "?sort_by=title")
+        },
+        sortByArtist() {
+            this.helperGetPosts(baseUri + "?sort_by=artist")
+        },
+        sortByDuration() {
+            this.helperGetPosts(baseUri + "?sort_by=duration")
+        },
+        sortByPublication() {
+            this.helperGetPosts(baseUri + "?sort_by=publication")
+        },
     }
 }).mount("#app")
