@@ -1,10 +1,12 @@
-const baseUri = "http://localhost:5010/api/Records"
+const baseUri = "https://rest---javascript-from-user-stories.azurewebsites.net/api/Records"
 
 Vue.createApp({
     data() {
         return {
             records: [],
             error: null,
+            addData: { id: 0, title: "", artist: "", publication: "2025-08-28T00:00:00", duration: 0 },
+            addMessage: "",
         }
     },
     async created() {
@@ -24,6 +26,15 @@ Vue.createApp({
                 this.error = ex.message
             }
         },  
+        async AddRecords() {
+            try {
+                response = await axios.post(baseUri, this.addData)
+                this.addMessage = "response " + response.status + " " + response.statusText
+                this.helperGetPosts(baseUri)
+            } catch (ex) {
+                alert(ex.message)
+            }
+        },
         sortByTitle() {
             this.helperGetPosts(baseUri + "?sort_by=title")
         },

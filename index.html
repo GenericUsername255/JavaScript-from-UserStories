@@ -13,28 +13,33 @@
 
 <body>
     <div id="app">
-
+        <input id="titleInput" v-model="addData.title" placeholder="title" type="text" />
+        <input id="artistInput" v-model="addData.artist" placeholder="artist" type="text" />
+        <!-- <input v-model="addData.publication" placeholder="publication" type="text" /> -->
+        <input id="durationInput" v-model="addData.duration" placeholder="duration" type="number"y/>
+        <button id="addRecord" v-on:click="AddRecords()" class="btn btn-success">Add</button>
+        <div>{{addMessage}}</div>
         <table id="table" class="table table-striped">
             <thead>
-                <th><button id="title" v-on:click="sortByTitle()">Title</button>
+                <th><button v-on:click="sortByTitle()">Title</button>
                     <!--button v-on:click="sortBy('title')">Title</button-->
                 </th>
                 <th>
-                    <button id="artist" v-on:click="sortByArtist()">Artist</button>
+                    <button v-on:click="sortByArtist()">Artist</button>
                 </th>
                 <th>
-                    <button id="duration" v-on:click="sortByDuration()">Duration</button>
+                    <button v-on:click="sortByDuration()">Duration</button>
                 </th>
                 <th>
-                    <button id="publication" v-on:click="sortByPublication()">Publication</button>
+                    <button v-on:click="sortByPublication()">Publication</button>
                 </th>
             </thead>
             <tbody>
                 <tr v-for="record in records">
-                    <td id="td-title">{{record.title}}</td>
-                    <td id="td-artist">{{record.artist }}</td>
-                    <td id="td-duration">{{record.duration }}</td>
-                    <td id="td-publication">{{record.publication }}</td>
+                    <td>{{record.title}}</td>
+                    <td>{{record.artist }}</td>
+                    <td>{{record.duration }}</td>
+                    <td>{{record.publication }}</td>
                 </tr>
             </tbody>
         </table>
