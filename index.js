@@ -7,11 +7,11 @@ Vue.createApp({
         return {
             records: [],
             error: null,
-            addData: { id: 0, title: "", artist: "", publication: "2025-08-28T00:00:00", duration: 0 },
+            addData: { id: 0, title: "", artist: "", publication: "2025-08-28T00:00:00", duration: "" },
             addMessage: "",
             deleteRecordId: 0,
             deleteMessage: "",
-            updateData: { id: 0, title: "", artist: "", publication: "", duration: 0 },
+            updateData: { id: "", title: "", artist: "", publication: "", duration: "" },
             updateMessage: ""
         }
     },
